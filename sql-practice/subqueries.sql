@@ -32,3 +32,25 @@ VALUES (
             name = 'Garfield'
     )
 );
+
+
+-- BONUS
+
+-- Phase 1: Dynamic INSERT using subquery with multiple insertions
+-- Give all cats born before 2013 a new toy named "Cat Bed" using a subquery
+
+INSERT INTO toys (name, cat_id)
+SELECT 'Cat Bed', id
+FROM cats
+WHERE
+    birth_year < 2013;
+
+
+-- Phase 2: Backup the tables using subquery
+-- Backup the cats table in a table called cats_backup using a subquery
+INSERT INTO cats_backup
+SELECT * FROM cats;
+
+-- Backup the toys table in a table called toys_backup using a subquery
+INSERT INTO toys_backup
+SELECT * FROM toys;
